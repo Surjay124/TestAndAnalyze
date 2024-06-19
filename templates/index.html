@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluation</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+    <div class="container mt-5">
+        <div class="text-center bg-white p-5 rounded shadow">
+            <h1 class="text-4xl font-bold mb-4">Welcome to KBC (Kaun Banega Chant)</h1>
+            <p class="text-lg mb-4">Click on the below button to first pay the fees and then start the quiz</p>
+            <button id="pay-btn" class="btn btn-primary px-4 py-2 rounded shadow-lg">Pay Now</button>
+        </div>
+    </div>
+
+    <form action="{% url 'quiz' %}" class="hidden">
+        {% csrf_token %}
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+        <script>
+            var options = {
+                key: "{{ razorpay_merchant_key }}",
+                amount: "{{ razorpay_amount }}",
+                currency: "{{ currency }}",
+                name: "SURJAY SONI",
+                order_id: "{{ razorpay_order_id }}",
+                callback_url: "{{ callback_url }}",
+            };
+
+            var rzp1 = new Razorpay(options);
+
+            document.getElementById("pay-btn").onclick = function (e) {
+                rzp1.open();
+                e.preventDefault();
+            };
+        </script>
+    </form>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

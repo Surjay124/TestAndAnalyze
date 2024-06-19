@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+    <div class="container mt-5">
+        <h1 class="text-center text-2xl font-bold mb-5">Welcome to Quiz Tab-1</h1>
+        <div class="bg-white p-5 rounded shadow-md">
+            <fieldset>
+                <legend class="text-lg font-semibold mb-3">Question 1</legend>
+                <div class="form-group">
+                    <label>Which of these features of OOPs would indicate code reusability?</label>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="option1" name="Option" value="Polymorphism" class="custom-control-input">
+                        <label class="custom-control-label" for="option1">Polymorphism</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="option2" name="Option" value="Abstraction" class="custom-control-input">
+                        <label class="custom-control-label" for="option2">Abstraction</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="option3" name="Option" value="Inheritance" class="custom-control-input">
+                        <label class="custom-control-label" for="option3">Inheritance</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="option4" name="Option" value="Encapsulation" class="custom-control-input">
+                        <label class="custom-control-label" for="option4">Encapsulation</label>
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="getMarks1()">Submit</button>
+            </fieldset>
+        </div>
+
+        <div class="bg-white p-5 rounded shadow-md mt-4">
+            <fieldset>
+                <legend class="text-lg font-semibold mb-3">Question 2</legend>
+                <div class="form-group">
+                    <label>Which of these specifiers would be applied to the constructors only?</label>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="ption1" name="ption" value="Explicit" class="custom-control-input">
+                        <label class="custom-control-label" for="ption1">Explicit</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="ption2" name="ption" value="Implicit" class="custom-control-input">
+                        <label class="custom-control-label" for="ption2">Implicit</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="ption3" name="ption" value="Protected" class="custom-control-input">
+                        <label class="custom-control-label" for="ption3">Protected</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="ption4" name="ption" value="Public" class="custom-control-input">
+                        <label class="custom-control-label" for="ption4">Public</label>
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="getMarks2()">Submit</button>
+            </fieldset>
+        </div>
+
+        <div class="bg-white p-5 rounded shadow-md mt-4">
+            <fieldset>
+                <legend class="text-lg font-semibold mb-3">Question 3</legend>
+                <div class="form-group">
+                    <label>The access specifier that is/are the most secure during inheritance is/are</label>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="tion1" name="tion" value="Protected" class="custom-control-input">
+                        <label class="custom-control-label" for="tion1">Protected</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="tion2" name="tion" value="Private" class="custom-control-input">
+                        <label class="custom-control-label" for="tion2">Private</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="tion3" name="tion" value="Private and Default" class="custom-control-input">
+                        <label class="custom-control-label" for="tion3">Private and Default</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="tion4" name="tion" value="Default" class="custom-control-input">
+                        <label class="custom-control-label" for="tion4">Default</label>
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="getMarks3()">Submit</button>
+            </fieldset>
+        </div>
+
+        <form action="{% url 'fetch_value' %}" method="post" class="bg-white p-5 rounded shadow-md mt-4">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="marksInput">Total Marks:</label>
+                <input type="number" id="marksInput" name="marks" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="countInput">Total Correct Questions:</label>
+                <input type="number" id="countInput" name="Correct" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="percentageInput">Percentage Obtained:</label>
+                <input type="number" step="any" id="percentageInput" name="Percentage" class="form-control">
+            </div>
+            <button type="button" class="btn btn-secondary" onclick="display()">Display</button>
+            <button type="submit" class="btn btn-success">Fetch Value</button>
+        </form>
+
+        <div class="text-center mt-4">
+            <a href="quiz2" class="btn btn-info">Click Here for Quiz 2</a>
+        </div>
+    </div>
+
+    <script>
+        var marks = 0;
+        var correctCount = 0;
+
+        function getMarks1() {
+            var correctOption = document.getElementById('option3')
+
+            if (correctOption.checked) {
+                marks += 4
+                correctCount++;
+            } else {
+                marks -= 1
+            }
+            console.log(marks)
+            console.log(correctCount)
+        }
+
+        function getMarks2() {
+            var correctOption = document.getElementById('ption1')
+
+            if (correctOption.checked) {
+                marks += 4
+                correctCount++;
+            } else {
+                marks -= 1
+            }
+            console.log(marks)
+            console.log(correctCount)
+        }
+
+        function getMarks3() {
+            var correctOption = document.getElementById('tion2')
+
+            if (correctOption.checked) {
+                marks += 4
+                correctCount++;
+            } else {
+                marks -= 1
+            }
+            console.log(marks)
+            console.log(correctCount)
+        }
+
+        function display() {
+            percentage = (marks / 12) * 100.0;
+            var mi = document.getElementById("marksInput");
+            mi.value = marks;
+            var ci = document.getElementById("countInput");
+            ci.value = correctCount;
+            var pi = document.getElementById("percentageInput");
+            pi.value = percentage;
+        }
+    </script>
+</body>
+
+</html>

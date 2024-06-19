@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quiz2</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mt-5">
+        <div class="text-center mb-4">
+            <h1 class="text-4xl font-bold">Welcome to Quiz-2 Tab</h1>
+        </div>
+
+        <form action="{% url 'fetch_value2' %}" method="post">
+            {% csrf_token %}
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <fieldset>
+                        <legend class="text-2xl font-semibold mb-3">Question 1</legend>
+                        <p>What will be the output of the following Java program?</p>
+                        <pre><code>class Output {
+    public static void main(String args[]) {
+        char a[] = {'a', '5', 'A', ' '};
+        System.out.print(Character.isDigit(a[0]) + " ");
+        System.out.print(Character.isWhitespace(a[3]) + " ");
+        System.out.print(Character.isUpperCase(a[2]));
+    }
+}</code></pre>
+                        <div class="form-check">
+                            <input type="radio" id="option1" name="Option" value="true false true" class="form-check-input">
+                            <label for="option1" class="form-check-label">true false true</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="option2" name="Option" value="false true true" class="form-check-input">
+                            <label for="option2" class="form-check-label">false true true</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="option3" name="Option" value="true true false" class="form-check-input">
+                            <label for="option3" class="form-check-label">true true false</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="option4" name="Option" value="false false false" class="form-check-input">
+                            <label for="option4" class="form-check-label">false false false</label>
+                        </div>
+                        <button type="button" class="btn btn-primary mt-3" onclick="getMarks1()">Submit</button>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <fieldset>
+                        <legend class="text-2xl font-semibold mb-3">Question 2</legend>
+                        <p>What will be the output of the following Java program?</p>
+                        <pre><code>class Output {
+    public static void main(String args[]) {
+        Integer i = new Integer(257);
+        byte x = i.byteValue();
+        System.out.print(x);
+    }
+}</code></pre>
+                        <div class="form-check">
+                            <input type="radio" id="ption1" name="Option1" value="0" class="form-check-input">
+                            <label for="ption1" class="form-check-label">0</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="ption2" name="Option1" value="1" class="form-check-input">
+                            <label for="ption2" class="form-check-label">1</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="ption3" name="Option1" value="256" class="form-check-input">
+                            <label for="ption3" class="form-check-label">256</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="ption4" name="Option1" value="257" class="form-check-input">
+                            <label for="ption4" class="form-check-label">257</label>
+                        </div>
+                        <button type="button" class="btn btn-primary mt-3" onclick="getMarks2()">Submit</button>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <fieldset>
+                        <legend class="text-2xl font-semibold mb-3">Question 3</legend>
+                        <p>What will be the output of the following Java program?</p>
+                        <pre><code>class Output {
+    public static void main(String args[]) {
+        Long i = new Long(256);
+        System.out.print(i.hashCode());
+    }
+}</code></pre>
+                        <div class="form-check">
+                            <input type="radio" id="tion1" name="Option2" value="256" class="form-check-input">
+                            <label for="tion1" class="form-check-label">256</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="tion2" name="Option2" value="256.0" class="form-check-input">
+                            <label for="tion2" class="form-check-label">256.0</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="tion3" name="Option2" value="256.00" class="form-check-input">
+                            <label for="tion3" class="form-check-label">256.00</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="tion4" name="Option2" value="257.00" class="form-check-input">
+                            <label for="tion4" class="form-check-label">257.00</label>
+                        </div>
+                        <button type="button" class="btn btn-primary mt-3" onclick="getMarks3()">Submit</button>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <fieldset>
+                        <legend class="text-2xl font-semibold mb-3">Question 4</legend>
+                        <p>Which of the following methods is a method of wrapper Integer for obtaining hash code for the invoking object?</p>
+                        <div class="form-check">
+                            <input type="radio" id="ion1" name="tion" value="int hash()" class="form-check-input">
+                            <label for="ion1" class="form-check-label">int hash()</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="ion2" name="tion" value="int hashcode()" class="form-check-input">
+                            <label for="ion2" class="form-check-label">int hashcode()</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="ion3" name="tion" value="int hashCode()" class="form-check-input">
+                            <label for="ion3" class="form-check-label">int hashCode()</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="ion4" name="tion" value="Integer hashcode()" class="form-check-input">
+                            <label for="ion4" class="form-check-label">Integer hashcode()</label>
+                        </div>
+                        <button type="button" class="btn btn-primary mt-3" onclick="getMarks4()">Submit</button>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <fieldset>
+                        <legend class="text-2xl font-semibold mb-3">Question 5</legend>
+                        <p>Which of these is a super class of wrappers Long, Character & Integer?</p>
+                        <div class="form-check">
+                            <input type="radio" id="on1" name="tion1" value="Long" class="form-check-input">
+                            <label for="on1" class="form-check-label">Long</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="on2" name="tion1" value="Digits" class="form-check-input">
+                            <label for="on2" class="form-check-label">Digits</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="on3" name="tion1" value="Float" class="form-check-input">
+                            <label for="on3" class="form-check-label">Float</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="on4" name="tion1" value="Number" class="form-check-input">
+                            <label for="on4" class="form-check-label">Number</label>
+                        </div>
+                        <button type="button" class="btn btn-primary mt-3" onclick="getMarks5()">Submit</button>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <fieldset>
+                        <legend class="text-2xl font-semibold mb-3">Results</legend>
+                        <div class="form-group">
+                            <label for="marksInput">Total Marks:</label>
+                            <input type="number" id="marksInput" name="marks2" class="form-control" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="countInput">Total Correct Questions:</label>
+                            <input type="number" id="countInput" name="Correct2" class="form-control" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="percentageInput">Percentage Obtained:</label>
+                            <input type="number" step="any" id="percentageInput" name="Percentage2" class="form-control" readonly>
+                        </div>
+                        <button type="button" class="btn btn-secondary" onclick="display()">Display</button>
+                        <button type="submit" class="btn btn-success">Fetch Value</button>
+                    </fieldset>
+                </div>
+            </div>
+        </form>
+
+        <div class="text-center mt-4">
+            <a href="quiz3" class="btn btn-info">Click Here to go to Quiz 3</a>
+        </div>
+    </div>
+
+    <!-- Bootstrap and jQuery JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        var marks = 0;
+        var correctCount = 0;
+
+        function getMarks1() {
+            var correctOption = document.getElementById('option2');
+            if (correctOption.checked) {
+                marks += 4;
+                correctCount++;
+            } else {
+                marks -= 1;
+            }
+            console.log(marks);
+            console.log(correctCount);
+        }
+
+        function getMarks2() {
+            var correctOption = document.getElementById('ption2');
+            if (correctOption.checked) {
+                marks += 4;
+                correctCount++;
+            } else {
+                marks -= 1;
+            }
+            console.log(marks);
+            console.log(correctCount);
+        }
+
+        function getMarks3() {
+            var correctOption = document.getElementById('tion1');
+            if (correctOption.checked) {
+                marks += 4;
+                correctCount++;
+            } else {
+                marks -= 1;
+            }
+            console.log(marks);
+            console.log(correctCount);
+        }
+
+        function getMarks4() {
+            var correctOption = document.getElementById('ion3');
+            if (correctOption.checked) {
+                marks += 4;
+                correctCount++;
+            } else {
+                marks -= 1;
+            }
+            console.log(marks);
+            console.log(correctCount);
+        }
+
+        function getMarks5() {
+            var correctOption = document.getElementById('on4');
+            if (correctOption.checked) {
+                marks += 4;
+                correctCount++;
+            } else {
+                marks -= 1;
+            }
+            console.log(marks);
+            console.log(correctCount);
+        }
+
+        function display() {
+            var percentage = (marks / 20) * 100;
+            var mi = document.getElementById("marksInput");
+            mi.value = marks;
+            var ci = document.getElementById("countInput");
+            ci.value = correctCount;
+            var pi = document.getElementById("percentageInput");
+            pi.value = percentage;
+        }
+    </script>
+</body>
+</html>
